@@ -1,0 +1,45 @@
+options
+{
+  JDK_VERSION = "1.5";
+  STATIC = false;
+  TOKEN_FACTORY = "Token";
+  BUILD_PARSER = false;
+  DEBUG_TOKEN_MANAGER = true;
+}
+
+PARSER_BEGIN(BladeLexer)
+package org.radic.nb.php.blade.jcclexer;
+
+
+public class BladeLexer {}
+
+PARSER_END(BladeLexer)
+
+
+SKIP :
+{
+ " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+MORE :
+{
+  "{{--" : IN_MULTI_LINE_COMMENT
+}
+
+<IN_MULTI_LINE_COMMENT>
+SPECIAL_TOKEN :
+{
+  <MULTI_LINE_COMMENT: "--}}" > : DEFAULT
+}
+
+<IN_MULTI_LINE_COMMENT>
+MORE :
+{
+  < ~[] >
+}
+
+TOKEN: { <UNEXPECTED_CHARACTER: ~[] > }
