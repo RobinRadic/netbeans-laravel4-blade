@@ -1,5 +1,9 @@
-Blade template support for NetBeans 8.0
+(Discontinued) Blade template support for NetBeans 8.0
 =======================
+
+
+## Due to the fact that PHPStorm is so, so much better then NetBeans and because PHPStorm has Blade syntax highlighting + laravel plugin, i do not plan to continue with the project.
+
 
 A work in progress to include syntax highlighting for Blade files in NetBeans (8.0, currently in Beta)
 
